@@ -19,7 +19,7 @@ public class Shooting : MonoBehaviour {
     {
         if(Input.GetAxis("Fire1") <= -1 && shootTimer >= rof)
         {
-            Instantiate(bullet, barrel.position, transform.localRotation);
+            Instantiate(bullet, barrel.transform.position, transform.localRotation);
             shootTimer = 0;
         }
 
