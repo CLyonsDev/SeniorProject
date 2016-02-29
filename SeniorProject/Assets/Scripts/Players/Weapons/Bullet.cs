@@ -12,10 +12,17 @@ public class Bullet : MonoBehaviour {
     {
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(transform.up* speed);
+        StartCoroutine(DespawnBullet());
     }
 
-    // Update is called once per frame
-    void Update ()
+    void OnCollisionEnter2D(Collision2D col)
     {
-	}
+        Destroy(gameObject);
+    }
+
+    IEnumerator DespawnBullet()
+    {
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
+    }
 }

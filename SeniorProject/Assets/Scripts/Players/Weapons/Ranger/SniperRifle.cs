@@ -27,7 +27,6 @@ public class SniperRifle : MonoBehaviour {
             shootTimer = 0;
             
         }
-
         if (shootTimer < rof)
         {
             shootTimer += Time.deltaTime;
