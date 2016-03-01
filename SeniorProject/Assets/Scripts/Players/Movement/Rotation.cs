@@ -6,7 +6,7 @@ public class Rotation : MonoBehaviour {
 
     [SerializeField] int playerNum;
 
-    float rotSpeed = 1f;
+    float rotSpeed = 0.5f;
 
     Rigidbody2D rb;
 
@@ -41,6 +41,6 @@ public class Rotation : MonoBehaviour {
 
     void Rotate()
     {
-        transform.eulerAngles = new Vector3( 0, 0, Mathf.Atan2(vertical, horizontal) * 180 / Mathf.PI);
+        transform.eulerAngles = new Vector3(0, 0, Mathf.Atan2(vertical, horizontal) * 180 / Mathf.PI);
     }
 }

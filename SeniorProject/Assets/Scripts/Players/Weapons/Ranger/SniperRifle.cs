@@ -10,7 +10,7 @@ public class SniperRifle : MonoBehaviour {
     GameObject barrel;
 
     float shootTimer = 0;
-    float rof = 0.75f;
+    float rof = 1f;
 
     // Use this for initialization
     void Start ()

@@ -11,13 +11,28 @@ public class CameraLocation : MonoBehaviour {
 	void Start ()
     {
         players = GameObject.FindGameObjectsWithTag("Player");
-        transform.position = CalcCenter();
+        if (players.Length > 1)
+        {
+            transform.position = CalcCenter();
+        }
+        else
+        {
+            transform.position = players[0].transform.position;
+        }
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        transform.position = Vector2.Lerp(transform.position, CalcCenter(), lerpSpeed);
+        if(players.Length > 1)
+        {
+            transform.position = Vector2.Lerp(transform.position, CalcCenter(), lerpSpeed);
+        }
+        else
+        {
+            transform.position = Vector2.Lerp(transform.position, players[0].transform.position, lerpSpeed);
+        }
+        
 
 
 	}
