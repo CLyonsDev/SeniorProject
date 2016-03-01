@@ -253,6 +253,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 159700, guid: 331512b206ded3040b078dd93512e573, type: 2}
   - {fileID: 130992, guid: e0af3cbc15781be4fbd6198b46abacb7, type: 2}
+  players: []
 --- !u!1001 &66286229
 Prefab:
   m_ObjectHideFlags: 0
@@ -751,6 +752,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 159700, guid: 331512b206ded3040b078dd93512e573, type: 2}
   - {fileID: 130992, guid: e0af3cbc15781be4fbd6198b46abacb7, type: 2}
+  players: []
 --- !u!4 &209357826 stripped
 Transform:
   m_PrefabParentObject: {fileID: 497992, guid: fb0e2f83c654c4a48b50ebffea6d1148, type: 2}
@@ -1072,6 +1074,7 @@ GameObject:
   - 124: {fileID: 304162369}
   - 81: {fileID: 304162368}
   - 114: {fileID: 304162373}
+  - 114: {fileID: 304162374}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1141,11 +1144,11 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 304162367}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -20}
+  m_LocalPosition: {x: 0, y: 0, z: -19.8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 1549078208}
-  m_RootOrder: 0
+  m_Father: {fileID: 0}
+  m_RootOrder: 13
 --- !u!114 &304162373
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1158,6 +1161,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   players: []
+--- !u!114 &304162374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 304162367}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60059a03bc0a949489fe8a3480256557, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Padding: 4
 --- !u!1001 &330193715
 Prefab:
   m_ObjectHideFlags: 0
@@ -3131,7 +3146,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 144294, guid: 7ca47cb50209cff42b982fcd6e946c37, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7ca47cb50209cff42b982fcd6e946c37, type: 2}
@@ -3266,6 +3281,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 159700, guid: 331512b206ded3040b078dd93512e573, type: 2}
   - {fileID: 130992, guid: e0af3cbc15781be4fbd6198b46abacb7, type: 2}
+  players: []
 --- !u!1001 &1095325781
 Prefab:
   m_ObjectHideFlags: 0
@@ -4795,8 +4811,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 304162372}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!114 &1549078209
@@ -4805,7 +4820,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1549078207}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 17e83adbd653e5d4c8131f0d97ebf950, type: 3}
   m_Name: 
@@ -4924,6 +4939,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 159700, guid: 331512b206ded3040b078dd93512e573, type: 2}
   - {fileID: 130992, guid: e0af3cbc15781be4fbd6198b46abacb7, type: 2}
+  players: []
 --- !u!1001 &1607417374
 Prefab:
   m_ObjectHideFlags: 0
@@ -5921,7 +5937,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 120044, guid: d07662fa97bc1fe419dadc208ac824ad, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: d07662fa97bc1fe419dadc208ac824ad, type: 2}
@@ -6052,6 +6068,7 @@ MonoBehaviour:
   enemies:
   - {fileID: 159700, guid: 331512b206ded3040b078dd93512e573, type: 2}
   - {fileID: 130992, guid: e0af3cbc15781be4fbd6198b46abacb7, type: 2}
+  players: []
 --- !u!1 &2088225152
 GameObject:
   m_ObjectHideFlags: 0
