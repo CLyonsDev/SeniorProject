@@ -14,7 +14,7 @@ GameObject:
   - 114: {fileID: 11412864}
   m_Layer: 9
   m_Name: Bullet2
-  m_TagString: Untagged
+  m_TagString: Player Projectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,6 +81,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 0.15
+  damage: 50
 --- !u!212 &21213088
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -133,6 +134,14 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: speed
       value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_TagString
+      value: Player Projectile
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: damage
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
