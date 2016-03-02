@@ -8,17 +8,17 @@ public class CameraZoomFollow : MonoBehaviour
 
 	public void Start()
 	{
-		Players = GameObject.FindGameObjectsWithTag ("Player");
+		Players = GameObject.FindGameObjectsWithTag ("Player"); //Gets all players
 	}
 
-	private Rect GetBounds()
+	private Rect GetBounds() //Getting the boundaries of out camera
 	{
-		float minx = float.MaxValue;
-		float miny = float.MaxValue;
-		float maxx = float.MinValue;
-		float maxy = float.MinValue;
+		float minx = float.MaxValue; //Left
+		float miny = float.MaxValue; //Right
+		float maxx = float.MinValue; //Top
+		float maxy = float.MinValue; //Bottom
 
-		for (int i = 0; i < Players.Length; i++) {			
+		for (int i = 0; i < Players.Length; i++) { //For each player in the player array...	
 			minx = Mathf.Min (minx, Players[i].transform.position.x);
 			miny = Mathf.Min (miny, Players[i].transform.position.y);
 			maxx = Mathf.Max (maxx, Players[i].transform.position.x);

@@ -14,7 +14,7 @@ public class PortalSpawning : MonoBehaviour {
     float spawnRate = 7f;
     float timer = 0;
 
-    float spawnRange = 15f;
+    float spawnRange = 10f;
 
     bool canSpawn;
 
@@ -36,6 +36,7 @@ public class PortalSpawning : MonoBehaviour {
         {
             if(Vector2.Distance(transform.position, go.transform.position) <= spawnRange)
             {
+                Debug.Log(Vector2.Distance(transform.position, go.transform.position));
                 canSpawn = true;
             }
         }
