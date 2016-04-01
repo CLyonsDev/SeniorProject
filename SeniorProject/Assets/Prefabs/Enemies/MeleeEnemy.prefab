@@ -14,6 +14,7 @@ GameObject:
   - 60: {fileID: 6049036}
   - 114: {fileID: 11421358}
   - 114: {fileID: 11434788}
+  - 114: {fileID: 11491318}
   m_Layer: 11
   m_Name: MeleeEnemy
   m_TagString: Enemy
@@ -42,7 +43,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 159700}
   m_UseAutoMass: 0
   m_Mass: 100
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_IsKinematic: 0
@@ -103,6 +104,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 100
+  soundPlayer: {fileID: 137966, guid: 9e1d684ad7976604d845590a69c2fa2e, type: 2}
 --- !u!114 &11434788
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -114,8 +116,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b406723e30270a64094a4f4b329f5f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
-  stopDistance: 1
+  target: {fileID: 0}
+  speed: 1.5
+  rotSpeed: 25
+  stopDistance: 1.15
+  dist: 0
+--- !u!114 &11491318
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 159700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8228c146980b6aa48bb4295f27e4db8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  stopDistance: 1.15
 --- !u!212 &21204412
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -167,12 +184,24 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: speed
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: stopDistance
-      value: 1
+      value: 1.15
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LinearDrag
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: target
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 137966, guid: 9e1d684ad7976604d845590a69c2fa2e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 159700}

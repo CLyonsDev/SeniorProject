@@ -21,20 +21,29 @@ public class HammerSwing : MonoBehaviour {
 
     bool swingLeft = false;
 
+    [SerializeField]
+    AudioClip[] sounds;
+
+    AudioSource aus;
+
     // Use this for initialization
     void Start ()
     {
         currentAngle = transform.eulerAngles;
         swing = new Quaternion(0, 0, 90, 0);
         ps = particleSpawner.GetComponent<ParticleSystem>();
+
+        aus = GetComponent<AudioSource>();
 	}
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetAxis("P2Fire1") <= -0.35f && shootTimer >= rof)
+        if (Input.GetAxis("P2Fire1") <= -0.35f && shootTimer >= rof && !swinging)
         {
             shootTimer = 0;
+            aus.PlayOneShot(sounds[Random.Range(0, sounds.Length - 1)]);
+
             swinging = true;
         }
         if (shootTimer < rof)
@@ -47,7 +56,7 @@ public class HammerSwing : MonoBehaviour {
 
             ps.Play();
 
-            if(swingLeft)
+            if (swingLeft)
             {
                 swing = new Quaternion(0, 0, -25, 0);
                 if (currentAngle.z <= -24.5)

@@ -21,6 +21,7 @@ public class Shooting : MonoBehaviour {
         {
             Instantiate(bullet, barrel.transform.position, transform.localRotation);
             shootTimer = 0;
+            GetComponent<AudioSource>().Play();
         }
 
         if(shootTimer < rof)

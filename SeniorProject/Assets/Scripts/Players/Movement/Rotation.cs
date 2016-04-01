@@ -13,6 +13,8 @@ public class Rotation : MonoBehaviour {
     float horizontal;
     float vertical;
 
+    public bool canLook = true;
+
     // Use this for initialization
     void Start () {
 	
@@ -36,7 +38,10 @@ public class Rotation : MonoBehaviour {
             vertical = Input.GetAxis("P3Vertical2") * rotSpeed;
         }
 
-        Rotate();
+        if(canLook)
+        {
+            Rotate();
+        } 
     }
 
     void Rotate()

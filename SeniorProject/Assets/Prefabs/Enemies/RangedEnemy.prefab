@@ -14,6 +14,7 @@ GameObject:
   - 58: {fileID: 5817740}
   - 114: {fileID: 11492798}
   - 114: {fileID: 11453946}
+  - 114: {fileID: 11488348}
   m_Layer: 11
   m_Name: RangedEnemy
   m_TagString: Enemy
@@ -28,7 +29,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 130992}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.9338465, y: -0.36093068, z: 0}
+  m_LocalPosition: {x: -3.74718, y: -4.1967773, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -42,7 +43,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 130992}
   m_UseAutoMass: 0
   m_Mass: 100
-  m_LinearDrag: 0
+  m_LinearDrag: 5
   m_AngularDrag: 0.05
   m_GravityScale: 0
   m_IsKinematic: 0
@@ -92,8 +93,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b406723e30270a64094a4f4b329f5f75, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  target: {fileID: 0}
   speed: 1.5
+  rotSpeed: 25
   stopDistance: 4
+  dist: 0
+--- !u!114 &11488348
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 130992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6749b1d83a2a5944abf6859fbb1cc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 160600, guid: 0c4a95f31dd25f94fb941e7ba5d68ef9, type: 2}
+  canAttack: 1
 --- !u!114 &11492798
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -106,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maxHealth: 200
+  soundPlayer: {fileID: 137966, guid: 9e1d684ad7976604d845590a69c2fa2e, type: 2}
 --- !u!212 &21254696
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -163,6 +181,14 @@ Prefab:
       propertyPath: stopDistance
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: m_LinearDrag
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: soundPlayer
+      value: 
+      objectReference: {fileID: 137966, guid: 9e1d684ad7976604d845590a69c2fa2e, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 130992}

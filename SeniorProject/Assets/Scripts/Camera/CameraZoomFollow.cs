@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using System.Collections;
 
 public class CameraZoomFollow : MonoBehaviour
 {
-	[SerializeField] float Padding = 1;
-	GameObject[] Players;
+    [SerializeField] float Padding = 1;
+    List<GameObject> Players = new List<GameObject>();
 
-	public void Start()
-	{
-		Players = GameObject.FindGameObjectsWithTag ("Player"); //Gets all players
+    public void Start()
+    {
 	}
 
 	private Rect GetBounds() //Getting the boundaries of out camera
@@ -18,7 +18,7 @@ public class CameraZoomFollow : MonoBehaviour
 		float maxx = float.MinValue; //Top
 		float maxy = float.MinValue; //Bottom
 
-		for (int i = 0; i < Players.Length; i++) { //For each player in the player array...	
+		for (int i = 0; i < Players.Count; i++) {
 			minx = Mathf.Min (minx, Players[i].transform.position.x);
 			miny = Mathf.Min (miny, Players[i].transform.position.y);
 			maxx = Mathf.Max (maxx, Players[i].transform.position.x);
@@ -32,31 +32,44 @@ public class CameraZoomFollow : MonoBehaviour
 
 	public void Update()
 	{
-		Rect bounds = GetBounds ();
+        GameObject[] allPlayers = GameObject.FindGameObjectsWithTag("Player");
+        Players.Clear();
+        foreach (GameObject go in allPlayers)
+        {
+            if(go.GetComponent<PlayerStats>().joined)
+            {
+                Players.Add(go); //Gets all players
+            }
+        }
 
-		float height = bounds.height * 100;
-		float width = bounds.width * 100;
+        if(Players.Count > 0)
+        {
+            Rect bounds = GetBounds();
 
-		float w = Screen.width / width;
-		float h = Screen.height / height;
+            float height = bounds.height * 100;
+            float width = bounds.width * 100;
 
-		float ratio = w / h;
+            float w = Screen.width / width;
+            float h = Screen.height / height;
 
-		float size = (height / 2) / 100f;
+            float ratio = w / h;
 
-		if (w < h)
-			size /= ratio;
+            float size = (height / 2) / 100f;
 
-		Camera.main.orthographicSize = size;
+            if (w < h)
+                size /= ratio;
 
-		Vector2 position = bounds.position + new Vector2 (bounds.width / 2f, -bounds.height / 2f);;
+            Camera.main.orthographicSize = size;
 
-		Vector3 camPosition = position;
-		Vector3 point = Camera.main.WorldToViewportPoint(camPosition);
-		Vector3 delta = camPosition - Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
-		Vector3 destination = transform.position + delta;
+            Vector2 position = bounds.position + new Vector2(bounds.width / 2f, -bounds.height / 2f); ;
 
-		transform.position = destination;
+            Vector3 camPosition = position;
+            Vector3 point = Camera.main.WorldToViewportPoint(camPosition);
+            Vector3 delta = camPosition - Camera.main.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z));
+            Vector3 destination = transform.position + delta;
+
+            transform.position = destination;
+        }   
 	}
 
 

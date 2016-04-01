@@ -11,7 +11,8 @@ public class Movement : MonoBehaviour {
 
     Vector2 dx;
     Vector2 dy;
-    
+
+    public bool canMove = true;
 
 	// Use this for initialization
 	void Start ()
@@ -22,8 +23,6 @@ public class Movement : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
     {
-        MovePlayer();
-
         if (playerNum == 1)
         {
             dx = Vector2.right * Input.GetAxis("Horizontal") * speed;
@@ -39,6 +38,12 @@ public class Movement : MonoBehaviour {
             dx = Vector2.right * Input.GetAxis("P3Horizontal") * speed;
             dy = Vector2.up * Input.GetAxis("P3Vertical") * speed;
         }
+
+        if (canMove)
+        {
+            MovePlayer();
+        }
+
     }
 
     void MovePlayer()

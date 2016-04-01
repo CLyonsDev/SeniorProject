@@ -12,11 +12,16 @@ public class SniperRifle : MonoBehaviour {
     float shootTimer = 0;
     float rof = 1f;
 
+    [SerializeField]
+    AudioClip[] sounds;
+
+    AudioSource aus;
+
     // Use this for initialization
     void Start ()
     {
-	
-	}
+        aus = GetComponent<AudioSource>();
+    }
 	
 	// Update is called once per frame
 	void Update ()
@@ -25,7 +30,8 @@ public class SniperRifle : MonoBehaviour {
         {
             Instantiate(bullet, barrel.transform.position, transform.localRotation);
             shootTimer = 0;
-            
+            aus.PlayOneShot(sounds[Random.Range(0, sounds.Length - 1)]);
+
         }
         if (shootTimer < rof)
         {

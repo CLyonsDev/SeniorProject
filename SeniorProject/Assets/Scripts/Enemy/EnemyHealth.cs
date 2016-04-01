@@ -7,6 +7,9 @@ public class EnemyHealth : MonoBehaviour {
     float maxHealth = 100;
     float health;
 
+    [SerializeField]
+    GameObject soundPlayer;
+
 	// Use this for initialization
 	void Start ()
     {
@@ -25,6 +28,8 @@ public class EnemyHealth : MonoBehaviour {
 
         if(health <= 0)
         {
+            Instantiate(soundPlayer, transform.position, transform.rotation);
+            GameObject.Find("Game Manager").GetComponent<ScoreManager>().enemiesKilled++;
             Destroy(gameObject);
         }
     }

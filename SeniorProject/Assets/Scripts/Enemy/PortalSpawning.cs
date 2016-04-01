@@ -11,9 +11,10 @@ public class PortalSpawning : MonoBehaviour {
 
     int spawnNum = 6;
 
-    float spawnRate = 7f;
+    float spawnRate = 4f;
     float timer = 0;
 
+    [SerializeField]
     float spawnRange = 10f;
 
     bool canSpawn;
@@ -24,19 +25,21 @@ public class PortalSpawning : MonoBehaviour {
 	void Start ()
     {
         portalLoc = transform.position;
-        players = GameObject.FindGameObjectsWithTag("Player");
+        
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        timer += Time.deltaTime;
+        players = GameObject.FindGameObjectsWithTag("Player");
+        if (players.Length > 0)
+        {
+            timer += Time.deltaTime;
 
         foreach(GameObject go in players)
         {
             if(Vector2.Distance(transform.position, go.transform.position) <= spawnRange)
             {
-                Debug.Log(Vector2.Distance(transform.position, go.transform.position));
                 canSpawn = true;
             }
         }
@@ -48,6 +51,7 @@ public class PortalSpawning : MonoBehaviour {
                 SpawnEnemies();
                 timer = 0;
             }
+        }
         }
 	}
 

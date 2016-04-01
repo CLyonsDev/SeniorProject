@@ -25,20 +25,23 @@ public class PortalHealth : MonoBehaviour
 
         healthBar.fillAmount = Mathf.Lerp(healthBar.fillAmount, currentHealth / maxHealth, Time.deltaTime * 16);
 
-        if(currentHealth <= 0)
+        if(Input.GetKeyDown(KeyCode.K))
         {
+            TakeDamage(maxHealth);
+        }
+    }
+
+    public void TakeDamage(float damage)
+    {
+        currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            GameObject.Find("Game Manager").GetComponent<GameManager>().PortalDeath();
+            GameObject.Find("Game Manager").GetComponent<ScoreManager>().portalsDestroyed++;
             healthBar.fillAmount = 0;
             Destroy(gameObject);
             Destroy(healthBarGO.transform.parent.gameObject);
             Destroy(healthBarGO);
-        }
-    }
-
-    void OnCollisionEnter2D(Collision2D coll)
-    {
-        if(coll.gameObject.tag == "Player Projectile")
-        {
-            currentHealth -= 25;
         }
     }
 }
